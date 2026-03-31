@@ -1,0 +1,4 @@
+package com.finaltodocode.final_todocode.service;
+
+public interface IClienteService {
+}

@@ -1,0 +1,39 @@
+package com.finaltodocode.final_todocode.controllers;
+
+
+import com.finaltodocode.final_todocode.model.Cliente;
+import com.finaltodocode.final_todocode.service.ClienteService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+public class ClienteController {
+
+@Autowired
+private ClienteService clienteService;
+
+@PostMapping("/clientes/guardar")
+    public void guardar(@RequestBody Cliente cliente) {
+clienteService.guardar(cliente);
+    }
+
+    @DeleteMapping("/clientes/eliminar/{id}")
+    public void eliminar(@PathVariable Long id) {
+clienteService.eliminar(id);
+    }
+
+    @PutMapping("/clientes/actualizar")
+    public void actualizar(@RequestBody Cliente clienteActualizado) {
+clienteService.actualizar(clienteActualizado);
+    }
+
+    @GetMapping("/clientes/buscarTodos")
+    @ResponseBody
+public List<Cliente> buscarTodos() {
+return clienteService.buscarTodos();
+}
+
+
+}

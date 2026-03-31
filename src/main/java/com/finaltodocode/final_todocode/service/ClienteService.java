@@ -1,0 +1,58 @@
+package com.finaltodocode.final_todocode.service;
+
+import com.finaltodocode.final_todocode.model.Cliente;
+import com.finaltodocode.final_todocode.repository.ClienteRepo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+
+
+
+@Service
+public class ClienteService implements IClienteService {
+
+    @Autowired
+    private ClienteRepo clienteRepo;
+
+    @Override
+    public void guardar(Cliente cliente) {
+clienteRepo.save(cliente);
+    }
+
+    @Override
+    public void eliminar(Long idCliente) {
+clienteRepo.deleteById(idCliente);
+    }
+
+    @Override
+    public List<Cliente> buscarTodos() {
+        return clienteRepo.findAll();
+    }
+
+    @Override
+    public void actualizar(Cliente cliente) {
+
+        Cliente clienteBuscado= clienteRepo.findById(cliente.getIdCliente())
+                .orElseThrow(() -> new RuntimeException("Cliente no encontrado, asegurese de ingresar un id valido"));
+
+        if (clienteBuscado != null) { //Este abarca a todos lo if
+
+            if(cliente.getNombre() != null){
+                clienteBuscado.setNombre(cliente.getNombre());
+            }
+            if(cliente.getApellido() != null){
+                clienteBuscado.setApellido(cliente.getApellido());
+            }
+            if(cliente.getDni() != null){
+                clienteBuscado.setDni(cliente.getDni());
+            }
+            clienteRepo.save(clienteBuscado);
+
+        }else {
+            this.guardar(cliente);
+        }
+
+    }
+}
