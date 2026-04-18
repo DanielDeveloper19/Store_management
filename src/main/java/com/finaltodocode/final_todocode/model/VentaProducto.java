@@ -14,7 +14,7 @@ import lombok.Setter;
     @NoArgsConstructor
     @AllArgsConstructor
 
-public class VentaProducto {
+public class VentaProducto {//Each VentaProducto will have a Product
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;

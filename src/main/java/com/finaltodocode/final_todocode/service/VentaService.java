@@ -7,6 +7,7 @@ import com.finaltodocode.final_todocode.model.VentaProducto;
 import com.finaltodocode.final_todocode.repository.ClienteRepo;
 import com.finaltodocode.final_todocode.repository.ProductoRepo;
 import com.finaltodocode.final_todocode.repository.VentaRepo;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +36,7 @@ public class VentaService implements IVentaService {
     //Aquí doy el id de cada venta
     private Long idVenta = 258L;
 
+    @Transactional
     @Override
     public void guardar(Venta venta) {//Listo
 
@@ -74,9 +76,8 @@ public class VentaService implements IVentaService {
             venta.setTotalVenta(venta.getTotalVenta() + (productoBuscado.getPrecio() * producto.getCantidadAComprar()));
 
             productoRepo.save(productoBuscado);
-
-
         }
+
         venta.setCodigoVenta(idVenta);
         ventaRepo.save(venta);
         idVenta++;

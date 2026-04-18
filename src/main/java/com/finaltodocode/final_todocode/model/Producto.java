@@ -16,6 +16,8 @@ import java.util.List;
 @AllArgsConstructor
 
 public class Producto {
+//This works as an stock of available products in the store, each product is an object
+    //representing how much of this product is available
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
