@@ -10,17 +10,7 @@ jobs:
   # 1. BUILD AND UNIT and Integration TESTs
   build-and-test:
     runs-on: ubuntu-latest
-    # This creates a "disposable" DB for your tests
-    services:
-      mysql:
-        image: mysql:8.0
-        env:
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: store_db
-        ports:
-          - 3306:3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
-
+   
     steps:
       - uses: actions/checkout@v4
 
@@ -34,10 +24,7 @@ jobs:
       # This single command runs Unit Tests AND Integration Tests
       - name: Build and Verify
         run: mvn clean verify
-        env:
-          SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/store_db
-          SPRING_DATASOURCE_USERNAME: root
-          SPRING_DATASOURCE_PASSWORD: root
+    
 
   # 2. CODE QUALITY (SonarCloud)
   # Note: Requires SONAR_TOKEN in GitHub Secrets
