@@ -29,7 +29,13 @@
 	<properties>
 		<java.version>17</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> <!-- Añade esto -->
-	</properties>
+
+        <java.version>17</java.version>
+        <tomcat.version>10.1.54</tomcat.version>
+
+        <sonar.organization>danieldeveloper19</sonar.organization>
+
+    </properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -39,6 +45,8 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+
+
 
 
         <dependency>
