@@ -35,6 +35,10 @@
 
         <sonar.organization>danieldeveloper19</sonar.organization>
 
+            <sonar.coverage.jacoco.xmlReportPaths>
+                ${project.build.directory}/site/jacoco/jacoco.xml
+            </sonar.coverage.jacoco.xmlReportPaths>
+
     </properties>
 	<dependencies>
 		<dependency>
@@ -92,6 +96,9 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+
+
 	</dependencies>
 
 	<build>
@@ -102,6 +109,26 @@
 			</resource>
 		</resources>
 		<plugins>
+
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.12</version> <executions>
+                <execution>
+                    <goals>
+                        <goal>prepare-agent</goal>
+                    </goals>
+                </execution>
+                <execution>
+                    <id>report</id>
+                    <phase>verify</phase>
+                    <goals>
+                        <goal>report</goal>
+                    </goals>
+                </execution>
+            </executions>
+            </plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
