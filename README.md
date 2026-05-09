@@ -1,40 +1,33 @@
-Store_management
-🏪 Store Management API
+<img width="1408" height="768" alt="Gemini_Generated_Image_eqn1h6eqn1h6eqn1" src="https://github.com/user-attachments/assets/bab09439-78f5-493b-8de5-9667f62562a5" />
+<img width="1408" height="768" alt="Gemini_Generated_Image_vcd3b1vcd3b1vcd3" src="https://github.com/user-attachments/assets/424baa01-f617-432b-ae7f-f6be7e0284cc" />
 
-A complete RESTful backend system built with Spring Boot that handles administration, sales, and inventory management for retail stores. Fully containerized with Docker, featuring persistent data storage through a MySQL container for reliability and scalability.
+# 🛒 Store Management Microservice
+> **High-Performance Inventory & Transactional Engine for Alive Systems.**
 
-The API enables full CRUD operations for customers, products, and sales — allowing stores to:
+This repository contains the core business logic for the Store Management system. Built with a focus on **data integrity** and **transactional consistency**, this service handles complex retail workflows in a high-concurrency environment.
 
-Register and manage customer profiles
+## 🛠️ Tech Stack
+* **Language:** Java 17 (LTS)
+* **Framework:** Spring Boot 3.x
+* **Database:** MySQL 8.0 (Relational Data Integrity)
+* **Persistence:** Spring Data JPA / Hibernate
 
-Record and associate purchases with customers, products, prices, and dates
+## 🏗️ Domain Architecture
+The service is designed around **Clean Architecture** principles to ensure the business rules are decoupled from external infrastructure.
+* **Inventory Management:** Real-time stock tracking with ACID compliance.
+* **Sales Processing:** Atomic transaction handling for retail orders.
 
-Maintain precise real-time control of product stock
+## 🛡️ Quality & Security Pipeline (CI)
+Every commit triggers an automated **GitHub Actions** workflow designed to meet enterprise standards:
+1. **Build & Test:** Maven lifecycle execution with JUnit 5, Mockito and Integration Tests with Test containers.
+2. **Static Analysis:** Code quality verification via **SonarQube**.
+3. **Security Gate:** Container vulnerability scanning with **Trivy**.
+4. **Automated Delivery:** Production-ready images are pushed to the **GitHub Container Registry (GHCR)** only if all gates pass.
 
-Automatically prevent sales when stock is depleted, ensuring data consistency and business logic integrity
+## 🚀 Deployment
+This application is part of a larger GitOps ecosystem. It is automatically deployed to an **AWS EKS** cluster whenever the `master` branch is updated.
+* **Orchestration:** https://github.com/DanielDeveloper19/Store_Management_Terraform_EKS_kubernetes_infra_AWS.git
+* **GitOps State:** https://github.com/DanielDeveloper19/Store_Management_KubernetesManifests.git
 
-Designed with a modular architecture, it supports additional CRUD operations across multiple entities, making it easy to extend and integrate with other services such as billing, analytics, or external inventory systems.
-
-Tech Stack: Java, Spring Boot, MySQL, Docker, REST API, JPA/Hibernate
-
--NOTE: Do not forget to read the .env.example file that is in the root of the project, it is essential to read it for the Api to work without any problem.
-
-🏪 API de Gestión de Tiendas
-
-Un completo sistema backend RESTful desarrollado con Spring Boot que gestiona la administración, las ventas y el inventario de tiendas minoristas. Totalmente contenerizado con Docker, ofrece almacenamiento persistente de datos mediante un contenedor MySQL para mayor fiabilidad y escalabilidad.
-
-La API permite realizar operaciones CRUD completas para clientes, productos y ventas, lo que permite a las tiendas:
-
-Registrar y gestionar perfiles de clientes
-
-Registrar y asociar compras con clientes, productos, precios y fechas
-
-Mantener un control preciso y en tiempo real del stock de productos
-
-Impedir automáticamente las ventas cuando se agota el stock, garantizando la coherencia de los datos y la integridad de la lógica de negocio
-
-Diseñada con una arquitectura modular, admite operaciones CRUD adicionales en múltiples entidades, lo que facilita su extensión e integración con otros servicios como facturación, análisis o sistemas de inventario externos.
-
-Tecnologías: Java, Spring Boot, MySQL, Docker, API REST, JPA/Hibernate
-
--NOTA: No olvide leer el archivo .env.example que se encuentra en la raíz del proyecto; es fundamental leerlo para que la API funcione correctamente.
+---
+*Developed by Daniel Montoya under the Alive Systems Lab.*
