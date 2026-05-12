@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/v1") // Matches your Ingress path
 public class HealthController {
 
     @GetMapping("/health")
